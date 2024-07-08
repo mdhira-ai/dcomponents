@@ -1,6 +1,6 @@
 {
   "name": "dcomponentskb",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.esm.js",
   "types": "dist/index.d.ts",
@@ -8,6 +8,8 @@
   "files": [
     "dist"
   ],
+  "repository": "https://github.com/mdhira-ai/dcomponents",
+  "homepage": "https://github.com/mdhira-ai/dcomponents",
   "scripts": {
     "build": "rollup -c",
     "prepublishOnly": "npm run build"

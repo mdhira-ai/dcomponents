@@ -55,8 +55,8 @@ This section covers how to set up, develop, and maintain this package.
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/my-button-package.git
-   cd my-button-package
+   git clone https://github.com/mdhira-ai/dcomponents
+   cd dcomponents
    ```
 
 2. Install dependencies:
