@@ -1,1 +1,4 @@
-export {default as Mybutton} from './Button'
+export * from "./example/Getfunction";
+
+export * from "./example/useHook";
+export * from "./example/Buttoncomponents";
