@@ -1,252 +1,103 @@
-# My Package making tutorial
+# dcomponents Readme
 
-A simple, reusable button component for React applications, built with TypeScript and bundled with Rollup.
+Welcome to the `dcomponents` repository! This guide will help you set up and publish your own package.
 
-## Table of Contents
+## Getting Started
 
-- [My Package making tutorial](#my-package-making-tutorial)
-  - [Table of Contents](#table-of-contents)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Development](#development)
-    - [Prerequisites](#prerequisites)
-    - [Setting Up the Project](#setting-up-the-project)
-    - [Project Structure](#project-structure)
-    - [Building the Package](#building-the-package)
-    - [Testing Locally](#testing-locally)
-  - [Publishing](#publishing)
-  - [Contributing](#contributing)
-  - [License](#license)
+Follow these steps to clone the repository, modify the code, and publish your own version:
 
-## Installation
+### 1. Clone the Repository
 
-To use this package in your project, you can install it via npm:
+First, clone the repository to your local machine:
 
 ```bash
-npm install my-button-package
+git clone https://github.com/mdhira-ai/dcomponents
 ```
 
-## Usage
-
-After installation, you can import and use the Button component in your React application:
-
-```jsx
-import React from "react";
-import { Button } from "my-button-package";
-
-function App() {
-  return (
-    <Button onClick={() => console.log("Button clicked")}>Click me!</Button>
-  );
-}
-
-export default App;
-```
-
-## Development
-
-This section covers how to set up, develop, and maintain this package.
-
-### Prerequisites
-
-- Node.js (version 14.x or later)
-- npm (usually comes with Node.js)
-
-### Setting Up the Project
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/mdhira-ai/dcomponents
-   cd dcomponents
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-### Project Structure
-
-```
-my-button-package/
-├── src/
-│   ├── Button.tsx
-│   └── index.ts
-├── package.json
-├── tsconfig.json
-├── rollup.config.js
-└── README.md
-```
-
-- `src/Button.tsx`: The main component file
-- `src/index.ts`: Exports the component
-- `package.json`: Project configuration and dependencies
-- `tsconfig.json`: TypeScript configuration
-- `rollup.config.js`: Rollup bundler configuration
-
-### Building the Package
-
-To start the making package, run:
-
-This command creates a `package.json` file in the project directory.
+or
 
 ```bash
-npm init -y
+npx create-boreal-package
 ```
 
-This command installs the necessary dependencies for building the package.
+
+### 2. Check Example in `src` Folder
+
+Navigate to the `src` folder and examine the example code provided:
 
 ```bash
-npm install --save-dev react @types/react typescript rollup @rollup/plugin-node-resolve @rollup/plugin-typescript @rollup/plugin-commonjs
+cd dcomponents/src
 ```
 
-in `package,json` file put this text
+### 3. Create a New Code File in `src` Folder
+
+Create any new code file in the `src` folder. For example:
+
+```bash
+touch src/MyNewComponent.tsx
+```
+
+### 4. Import the Code File in `index.ts`
+
+Open the `index.ts` file and import your new code file:
+
+```typescript
+// src/index.ts
+export * from './MyNewComponent';
+```
+
+### 5. Change the Package Name in `package.json`
+
+Edit the `package.json` file to change the package name:
 
 ```json
- "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.esm.js",
-  "types": "dist/index.d.ts",
-  "type": "module",
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "build": "rollup -c",
-    "prepublishOnly": "npm run build"
-  },
-  "peerDependencies": {
-    "react": "^17.0.0 || ^18.0.0"
-  },
-```
-
-in `rollup.config.js` put this code
-
-```javascript
-import resolve from "@rollup/plugin-node-resolve";
-import commonjs from "@rollup/plugin-commonjs";
-import typescript from "@rollup/plugin-typescript";
-import { createRequire } from "module";
-const require = createRequire(import.meta.url);
-
-const packageJson = require("./package.json");
-
-export default [
-  {
-    input: "src/index.ts",
-    output: [
-      {
-        file: packageJson.main,
-        format: "cjs",
-        sourcemap: true,
-      },
-      {
-        file: packageJson.module,
-        format: "esm",
-        sourcemap: true,
-      },
-    ],
-    plugins: [
-      resolve(),
-      commonjs(),
-      typescript({ tsconfig: "./tsconfig.json" }),
-    ],
-  },
-];
-```
-
-in `tsconfig.json` put this code
-
-```json
+// package.json
 {
-  "compilerOptions": {
-    "target": "es5",
-    "module": "esnext",
-    "lib": ["dom", "esnext"],
-    "jsx": "react",
-    "declaration": true,
-    "declarationDir": "dist",
-    "strict": true,
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
-  },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist"]
+  "name": "your-new-package-name",
+  ...
 }
 ```
 
-This command builds the package:
+### 6. Change the Version Number According to Your Needs
+
+Update the version number in the `package.json` file:
+
+```json
+// package.json
+{
+  "version": "1.0.0",
+  ...
+}
+```
+
+### 7. Follow the Example Folder for Making Hooks, Components, and Library
+
+Use the examples in the `example` folder as a reference to create hooks, components, and library files.
+
+### 8. Build the Package
+
+Run the build script to compile your package:
 
 ```bash
 npm run build
 ```
 
-This command uses Rollup to bundle the TypeScript files and output them to the `dist/` directory.
+### 9. Log in to npm
 
-### Testing Locally
+Log in to your npm account:
 
-To test the package locally before publishing:
+```bash
+npm login
+```
 
-1. In the package directory, run:
+### 10. Publish the Package
 
-   ```bash
-   npm link
-   ```
+Finally, publish your package to npm:
 
-2. In your test project, run:
+```bash
+npm publish
+```
 
-   ```bash
-   npm link my-button-package
-   ```
+## Conclusion
 
-3. You can now import and use the component in your test project.
-
-To unlink after testing:
-
-1. In your test project:
-
-   ```bash
-   npm unlink my-button-package
-   ```
-
-2. In the package directory:
-   ```bash
-   npm unlink
-   ```
-
-## Publishing
-
-When you're ready to publish your package:
-
-1. Update the version in `package.json`:
-
-   ```bash
-   npm version patch # or minor, or major
-   ```
-
-2. Publish to npm:
-   ```bash
-   npm publish
-   ```
-
-Note: Make sure you're logged in to npm (`npm login`) and have the necessary permissions to publish.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
----
-
-For more information or support, please open an issue in the GitHub repository.
+You are now ready to use and share your customized package. Happy coding!
