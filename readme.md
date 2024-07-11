@@ -1,20 +1,22 @@
-# My Button Package
+# My Package making tutorial
 
 A simple, reusable button component for React applications, built with TypeScript and bundled with Rollup.
 
 ## Table of Contents
 
-1. [Installation](#installation)
-2. [Usage](#usage)
-3. [Development](#development)
-   - [Prerequisites](#prerequisites)
-   - [Setting Up the Project](#setting-up-the-project)
-   - [Project Structure](#project-structure)
-   - [Building the Package](#building-the-package)
-   - [Testing Locally](#testing-locally)
-4. [Publishing](#publishing)
-5. [Contributing](#contributing)
-6. [License](#license)
+- [My Package making tutorial](#my-package-making-tutorial)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Development](#development)
+    - [Prerequisites](#prerequisites)
+    - [Setting Up the Project](#setting-up-the-project)
+    - [Project Structure](#project-structure)
+    - [Building the Package](#building-the-package)
+    - [Testing Locally](#testing-locally)
+  - [Publishing](#publishing)
+  - [Contributing](#contributing)
+  - [License](#license)
 
 ## Installation
 
