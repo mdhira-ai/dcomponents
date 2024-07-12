@@ -1,6 +1,6 @@
 {
   "name": "dcomponentskb",
-  "version": "1.0.6",
+  "version": "1.0.5",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
